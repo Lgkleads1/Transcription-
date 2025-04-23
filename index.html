@@ -3,94 +3,99 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Transcription Job Connect</title>
+  <title>Transcription Connect</title>
   <style>
     body {
+      background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
       font-family: Arial, sans-serif;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
       margin: 0;
-      padding: 0;
-      background: #f4f8fc;
-      color: #333;
     }
     .container {
-      max-width: 600px;
-      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.1);
       padding: 2rem;
+      border-radius: 1rem;
+      max-width: 400px;
+      width: 100%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+    .container h1 {
       text-align: center;
-    }
-    h1 {
-      color: #0077cc;
-    }
-    button {
-      background-color: #0077cc;
-      color: white;
-      border: none;
-      padding: 1rem 2rem;
-      margin: 1rem 0;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #005fa3;
-    }
-    form {
-      display: none;
-      text-align: left;
-      margin-top: 2rem;
+      margin-bottom: 1rem;
     }
     label {
       display: block;
-      margin: 1rem 0 0.2rem;
+      margin-top: 1rem;
+      margin-bottom: 0.25rem;
     }
-    input, select {
+    input, select, button {
       width: 100%;
       padding: 0.5rem;
-      border-radius: 6px;
-      border: 1px solid #ccc;
+      margin-top: 0.25rem;
+      border: none;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+    }
+    button {
+      margin-top: 1rem;
+      background-color: #00c853;
+      color: #fff;
+      cursor: pointer;
+    }
+    button.secondary {
+      background-color: #1e88e5;
+    }
+    .message {
+      text-align: center;
+      margin-top: 1rem;
+      color: #ffe082;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Transcription Job Connect</h1>
-    <p>Get access to daily transcription jobs or buy a full account to start earning.</p>
-
-    <button onclick="showForm()">Apply as a Transcriber ($3)</button>
-    <button onclick="buyAccount()">Buy Transcription Account ($15)</button>
-
-    <form id="registerForm">
+    <h1>Join Transcription Network</h1>
+    <form id="registrationForm">
       <label for="name">Full Name</label>
       <input type="text" id="name" required />
 
-      <label for="email">Email</label>
-      <input type="email" id="email" required />
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" required />
 
-      <label for="education">Level of Education</label>
-      <input type="text" id="education" required />
+      <label for="education">Education Level</label>
+      <select id="education" required>
+        <option value="">-- Select --</option>
+        <option value="Masters">Masters Degree</option>
+        <option value="Bachelors">Bachelor's Degree</option>
+        <option value="Diploma">Diploma</option>
+        <option value="Certificate">Certificate</option>
+      </select>
+
+      <label for="language">Language Best in Transcribing</label>
+      <input type="text" id="language" required />
 
       <label for="interest">Area of Interest</label>
       <input type="text" id="interest" required />
 
-      <label for="language">Best Language for Transcription</label>
-      <input type="text" id="language" required />
-
-      <button type="submit">Submit and Pay $3</button>
+      <button type="button" onclick="handlePayment(3)">Pay $3 to Register</button>
+      <button type="button" class="secondary" onclick="handlePayment(15)">Buy Account for $15</button>
+      <div class="message" id="messageBox"></div>
     </form>
   </div>
 
   <script>
-    function showForm() {
-      document.getElementById("registerForm").style.display = "block";
-    }
+    function handlePayment(amount) {
+      const message = document.getElementById('messageBox');
+      message.innerText = `Processing... Please wait for a payment prompt of $${amount} on your phone.`;
 
-    function buyAccount() {
-      alert("To buy a transcription account, pay $15 via your mobile payment method.");
+      // Future STK Push Integration Point:
+      // Send form data and amount to backend via fetch()
+      // fetch('/stkpush', { method: 'POST', body: JSON.stringify({...}) })
     }
-
-    document.getElementById("registerForm").addEventListener("submit", function (e) {
-      e.preventDefault();
-      alert("Thank you! Please proceed to pay $3 via your mobile payment method.");
-    });
   </script>
 </body>
 </html>
