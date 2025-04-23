@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Transcription Job Connect</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f8fc;
+      color: #333;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 2rem;
+      text-align: center;
+    }
+    h1 {
+      color: #0077cc;
+    }
+    button {
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      margin: 1rem 0;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #005fa3;
+    }
+    form {
+      display: none;
+      text-align: left;
+      margin-top: 2rem;
+    }
+    label {
+      display: block;
+      margin: 1rem 0 0.2rem;
+    }
+    input, select {
+      width: 100%;
+      padding: 0.5rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Transcription Job Connect</h1>
+    <p>Get access to daily transcription jobs or buy a full account to start earning.</p>
+
+    <button onclick="showForm()">Apply as a Transcriber ($3)</button>
+    <button onclick="buyAccount()">Buy Transcription Account ($15)</button>
+
+    <form id="registerForm">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" required />
+
+      <label for="education">Level of Education</label>
+      <input type="text" id="education" required />
+
+      <label for="interest">Area of Interest</label>
+      <input type="text" id="interest" required />
+
+      <label for="language">Best Language for Transcription</label>
+      <input type="text" id="language" required />
+
+      <button type="submit">Submit and Pay $3</button>
+    </form>
+  </div>
+
+  <script>
+    function showForm() {
+      document.getElementById("registerForm").style.display = "block";
+    }
+
+    function buyAccount() {
+      alert("To buy a transcription account, pay $15 via your mobile payment method.");
+    }
+
+    document.getElementById("registerForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      alert("Thank you! Please proceed to pay $3 via your mobile payment method.");
+    });
+  </script>
+</body>
+</html>
